@@ -1,0 +1,21 @@
+System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		driver.get("https://www.google.co.in/");
+	
+		driver.findElement(By.name("q")).click();
+		
+		List<WebElement> element = driver.findElements(By.xpath("//li[@class='sbct' and not(@id='YMXe')]"));
+		int count = element.size();
+
+		for(WebElement ele:element)
+		{
+			System.out.println(ele.getText());
+			
+		}
+		
+		System.out.println(count);
+
